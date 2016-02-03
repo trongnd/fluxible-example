@@ -14,7 +14,7 @@ class Application extends React.Component {
         return (
             <div>
                 <Nav currentRoute={this.props.currentRoute} links={pages} />
-                <Handler />
+                <Handler {...this.props.data} />
             </div>
         );
     }
@@ -33,8 +33,13 @@ export default provideContext(handleHistory(connectToStores(
     [ApplicationStore],
     function (context, props) {
         var appStore = context.getStore(ApplicationStore);
+
         return {
-            pageTitle: appStore.getPageTitle()
+            pageTitle: appStore.getPageTitle(),
+            data: {
+                enjoyCoding: appStore.getEnjoyCoding(),
+                helloMessage: appStore.getHelloMessage(),        
+            }
         };
     }
 )));

@@ -12,5 +12,12 @@ export default {
         page: 'about',
         title: 'About',
         handler: require('../components/About')
+    },
+    hello: {
+        path: '/hello/:message?',
+        method: 'get',
+        page: 'hello',
+        title: 'Hello',
+        handler: require('../components/Hello')
     }
 };
